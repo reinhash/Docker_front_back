@@ -1,0 +1,18 @@
+version: '3.6'
+services: 
+    backend_ahk:
+        build: ./backendapp
+        command: yarn start
+        ports: 
+            - "3001:3001"
+        networks: 
+            - ahk_network
+    frontend_ahk:
+        build: ./frontendapp
+        ports: 
+            - "3000:80"
+        networks: 
+            - ahk_network
+networks: 
+    ahk_network:
+        driver: bridge
